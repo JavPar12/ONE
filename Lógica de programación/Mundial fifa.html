@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+
+<h1>Mundiales</h1>
+
+<script>
+
+	function linebreakk() {
+		//salta cinco lineas
+		document.write("<br><br><br><hr><br><br>");
+	
+	}
+
+	function print(frase) {
+		document.write("<big>" + frase + "</big>")
+		linebreakk();
+	}
+	
+	var yearworldcup = 1930;
+	var limit = parseInt(prompt("Ingrese el año limite para calcular"));
+	
+	while (yearworldcup <= limit) {
+		
+		print("Hubo mundial en el año " + yearworldcup);
+		yearworldcup = yearworldcup + 4;
+		
+	}
+
+	Print("Fin")
+</script>
+
+
+ 

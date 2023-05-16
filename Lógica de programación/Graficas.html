@@ -1,0 +1,56 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    // Definir una función para dibujar un rectángulo en una posición dada
+    function dibujarRectangulo(x, y, base, altura, color) {
+        // Obtener el lienzo (canvas) y el contexto de dibujo (pincel)
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        // Establecer el color de relleno del rectángulo
+        pincel.fillStyle = color;
+        // Dibujar el rectángulo en la posición y dimensiones especificadas
+        pincel.fillRect(x, y, base, altura);
+
+        // Establecer el color del borde del rectángulo
+        pincel.strokeStyle = "black";
+        // Dibujar el borde del rectángulo
+        pincel.strokeRect(x, y, base, altura);
+    }
+
+    // Definir una función para escribir texto en una posición dada
+    function escribirTexto(x, y, texto) {
+        // Obtener el lienzo (canvas) y el contexto de dibujo (pincel)
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+
+        // Establecer la fuente y el color del texto
+        pincel.font = "15px Georgia";
+        pincel.fillStyle = "black";
+        // Escribir el texto en la posición especificada
+        pincel.fillText(texto, x, y);
+    }
+
+    // Definir una función para dibujar una barra con una serie de datos y su etiqueta
+    function dibujarBarra(x, y, serie, colores, texto) {
+        // Escribir la etiqueta de la barra utilizando la función escribirTexto
+        escribirTexto(x, y - 10, texto);
+
+        var sumaAltura = 0;
+        for (var i = 0; i < serie.length; i++) {
+            var altura = serie[i];
+            // Dibujar un rectángulo para cada valor de la serie utilizando la función dibujarRectangulo
+            dibujarRectangulo(x, y + sumaAltura, 50, altura, colores[i]);
+            sumaAltura += altura;
+        }
+    }
+
+    // Definir los colores y las series de datos
+    var colores = ["blue", "green", "yellow", "red", "gray"];
+    var serie2009 = [6, 47, 41, 3, 3];
+    var serie2019 = [81, 9, 3, 3, 4];
+
+    // Dibujar las barras utilizando las series de datos y las etiquetas correspondientes
+    dibujarBarra(50, 50, serie2009, colores, "2009");
+    dibujarBarra(150, 50, serie2019, colores, "2019");
+</script>

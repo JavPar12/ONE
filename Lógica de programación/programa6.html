@@ -1,0 +1,48 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    // Obtener el elemento del lienzo y su contexto 2D
+    const pantalla = document.querySelector("canvas");
+    const pincel = pantalla.getContext("2d");
+
+    // Establecer el color de fondo del lienzo
+    pincel.fillStyle = "lightgrey";
+    pincel.fillRect(0, 0, 600, 400);
+
+    // Función para diseñar una circunferencia en la posición (x, y) con el radio dado
+    function disenarCircunferencia(x, y, radio) {
+        pincel.fillStyle = "blue";
+        pincel.beginPath();
+        pincel.arc(x, y, radio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    // Función para limpiar el contenido del lienzo
+    function limpiarPantalla() {
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+    var x = 0; // Posición inicial de la circunferencia en el eje x
+    var sentido = 1; // Variable para controlar el sentido del movimiento
+
+    // Función para actualizar y redibujar la pantalla en intervalos regulares
+    function actualizarpantalla() {
+        limpiarPantalla();
+
+        // Cambiar el sentido del movimiento cuando alcanza los límites del lienzo
+        if (x > 600) {
+            sentido = -1;
+        } else if (x < 0) {
+            sentido = 1;
+        }
+
+        // Dibujar la circunferencia en la posición actual (x, 20)
+        disenarCircunferencia(x, 20, 10);
+
+        // Actualizar la posición de la circunferencia según el sentido de movimiento
+        x = x + sentido;
+    }
+
+    // Llamar a la función actualizarpantalla en intervalos de tiempo regulares (5 milisegundos)
+    setInterval(actualizarpantalla, 5);
+</script>

@@ -1,0 +1,36 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    // Obtener el lienzo (canvas) y el contexto de dibujo (pincel)
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+
+    // Establecer el color de relleno en "lightgray" y dibujar un rectángulo que cubre todo el lienzo
+    pincel.fillStyle = "lightgray";
+    pincel.fillRect(0, 0, 600, 400);
+
+    // Definir una función para dibujar un círculo en una posición dada
+    function dibujarCirculo(x, y, radio, color) {
+        // Establecer el color de relleno en el color especificado
+        pincel.fillStyle = color;
+        // Iniciar un nuevo trazo
+        pincel.beginPath();
+        // Dibujar un arco circular con las coordenadas, radio y ángulo especificados
+        pincel.arc(x, y, radio, 0, 2 * Math.PI);
+        // Rellenar el círculo con el color especificado
+        pincel.fill();
+    }
+
+    // Definir una función para dibujar una flor en una posición dada
+    function dibujarFlor(x, y) {
+        // Dibujar los pétalos de la flor utilizando la función dibujarCirculo
+        dibujarCirculo(x, y + 20, 10, "blue");
+        dibujarCirculo(x, y, 10, "red");
+        dibujarCirculo(x, y - 20, 10, "yellow");
+        dibujarCirculo(x - 20, y, 10, "orange");
+        dibujarCirculo(x + 20, y, 10, "black");
+    }
+
+    // Llamar a la función dibujarFlor con las coordenadas (300, 200)
+    dibujarFlor(300, 200);
+</script>

@@ -1,0 +1,73 @@
+<meta charset="UTF-8">
+
+<h1>Juego de Adivinacion</h1>
+
+<script>
+
+	function linebreakk() {
+		//salta cinco lineas
+		document.write("<br><br><br><hr><br><br>");
+	
+	}
+
+	function print(frase) {
+		document.write("<big>" +frase + "</big>")
+		linebreakk();
+	}
+	
+	// Genera un número aleatorio entre 0 y 10, redondeado al entero más cercano.
+var numeroPensado = Math.round(Math.random()*10);
+
+// Establece la cantidad de intentos permitidos para adivinar el número.
+var intentos = 3;
+
+// Inicializa el contador en 1.
+var contador = 1;
+
+
+// Ejecuta el siguiente bloque de código mientras el contador sea menor o igual a la cantidad de intentos permitidos.
+while (contador <= intentos) {
+
+	// Solicita al usuario ingresar un número entre 0 y 10 y lo convierte a un entero.
+	var numerolanzado = parseInt(prompt("Ingrese un numero entre 0-10"));
+
+	// Si el número ingresado por el usuario es igual al número aleatorio pensado, se ejecuta este bloque de código.
+	if (numeroPensado == numerolanzado){
+
+		// Muestra un mensaje de que adivinó el número y en cuánto intento lo logró.
+		alert("usted acertó, en el intento " + contador + " el numero pensado era " + numeroPensado);
+
+		// Rompe el ciclo while.
+		break;
+	}
+
+	// Si el número ingresado por el usuario no es igual al número aleatorio pensado, se ejecuta este bloque de código.
+	else {
+
+		// Muestra un mensaje de que no adivinó el número.
+		alert("usted erró");
+	}
+
+	// Incrementa el contador en 1.
+	contador++;
+}
+
+// Si el número fue adivinado, se ejecuta este bloque de código.
+if (numeroPensado == numerolanzado){
+
+	// Muestra un mensaje de que adivinó el número y en cuánto intento lo logró.
+	print("Usted acertó, en el intento " + contador + " el numero pensado era " + numeroPensado);
+}
+
+// Si el número no fue adivinado, se ejecuta este bloque de código.
+else {
+
+	// Muestra un mensaje de que no adivinó el número y cuál era el número pensado.
+	print("Usted erró, el numero pensado era " + numeroPensado);
+}
+
+
+</script>
+
+
+ 

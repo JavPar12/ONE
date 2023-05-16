@@ -1,0 +1,24 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    // Obtener el lienzo (canvas) y el contexto de dibujo (pincel)
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+
+    // Dibujar un triangulo negro
+    pincel.fillStyle = "black";    // Establecer el color de relleno en negro
+    pincel.beginPath();             // Iniciar un nuevo trazo
+    pincel.moveTo(50, 50);          // Mover el pincel a la posición inicial (50, 50)
+    pincel.lineTo(50, 400);         // Dibujar una línea vertical hasta la posición (50, 400)
+    pincel.lineTo(400, 400);        // Dibujar una línea horizontal hasta la posición (400, 400)
+    pincel.fill();                  // Rellenar el área definida por el trazo con el color establecido
+
+    // Dibujar un rectángulo blanco
+    pincel.fillStyle = "white";    // Establecer el color de relleno en blanco
+    pincel.beginPath();             // Iniciar un nuevo trazo
+    pincel.moveTo(100, 175);        // Mover el pincel a la posición inicial (100, 175)
+    pincel.lineTo(100, 350);        // Dibujar una línea vertical hasta la posición (100, 350)
+    pincel.lineTo(275, 350);        // Dibujar una línea horizontal hasta la posición (275, 350)
+    pincel.fill();                  // Rellenar el área definida por el trazo con el color establecido
+    
+</script>

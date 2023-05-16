@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+
+<h1>Numeros pares</h1>
+
+<script>
+
+	function linebreakk() {
+		//salta cinco lineas
+		document.write("<br><br><br><hr><br><br>");
+	
+	}
+
+	function print(frase) {
+		document.write("<big>" + frase + "</big>")
+		linebreakk();
+	}
+
+	// Creamos una variable "contador" y la inicializamos en 2.
+var contador = 2;
+
+// Creamos un bucle "while" que se repetirá mientras que el contador sea menor o igual a 100.
+while(contador <= 100) {
+	// Dentro del bucle, imprimimos el valor actual de "contador".
+	print(contador);
+	
+	// Incrementamos el valor de "contador" en 2, para que en la próxima iteración se imprima el siguiente número par.
+	contador = contador + 2;
+}
+
+// Después de que el bucle termina, imprimimos "Fin" para indicar que el programa ha terminado de ejecutarse.
+print("Fin");
+</script>

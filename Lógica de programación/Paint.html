@@ -1,0 +1,108 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    // Obtener el elemento del lienzo y su contexto 2D
+    var pantalla = document.querySelector('canvas');
+    var pincel = pantalla.getContext('2d');
+
+    // Establecer el color de fondo del lienzo
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var puedoDibujar = false;
+
+    // Variables para dibujar la paleta
+    var xRojo = 0;
+    var xVerde = 50;
+    var xAzul = 100;
+    var yCuadrados = 0;
+    var tamanhoCuadrados = 50;
+    var colorActual = 'blue';
+
+    // Función para dibujar un círculo en la posición (x, y) con el color actual
+    function dibujarCirculo(x, y, colorActual) {
+        if (puedoDibujar) {
+            pincel.fillStyle = colorActual;
+            pincel.beginPath();
+            pincel.arc(x, y, 5, 0, 2 * Math.PI);
+            pincel.fill();
+        }
+    }
+
+    // Función para dibujar un cuadrado en la posición (x, y) con el tamaño y color dados
+    function dibujarCuadrado(x, y, tamanho, color) {
+        pincel.fillStyle = color;
+        pincel.fillRect(x, y, tamanho, tamanho);
+        pincel.fill();
+    }
+
+    // Función para dibujar la paleta de colores
+    function dibujarPaletaColores() {
+        dibujarCuadrado(xRojo, yCuadrados, tamanhoCuadrados, 'red');
+        dibujarCuadrado(xVerde, yCuadrados, tamanhoCuadrados, 'green');
+        dibujarCuadrado(xAzul, yCuadrados, tamanhoCuadrados, 'blue');
+    }
+
+    // Función para habilitar el dibujo
+    function habilitarDibujar() {
+        puedoDibujar = true;
+    }
+
+    // Función para deshabilitar el dibujo
+    function deshabilitarDibujar() {
+        puedoDibujar = false;
+    }
+
+    // Función para delimitar el área de dibujo
+    function puedeDisenharArea(xCoordenada, yCoordenada) {
+        if (
+            (xCoordenada >= 0 && xCoordenada < 3 * tamanhoCuadrados + 5) &&
+            (yCoordenada >= 0 && yCoordenada < tamanhoCuadrados + 5)
+        ) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    // Función para capturar el movimiento del mouse y dibujar círculos en el lienzo
+    function capturarMovimientoDelMouse(evento) {
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+
+        if (puedeDisenharArea(x, y)) {
+            dibujarCirculo(x, y, colorActual);
+        }
+    }
+
+    // Función para seleccionar el color actual de dibujo
+function seleccionarColor(evento) {
+    var x = evento.pageX - pantalla.offsetLeft;
+    var y = evento.pageY;
+
+    // Verificamos si la posición del mouse está dentro del área de la paleta de colores
+    if (y > yCuadrados && y < yCuadrados + tamanhoCuadrados) {
+        // Verificamos si la posición del mouse corresponde al cuadrado rojo
+        if (x > xRojo && x < xRojo + tamanhoCuadrados) {
+            colorActual = "red"; // Establecemos el color actual como rojo
+            console.log(colorActual); // Imprimimos el color actual en la consola
+        }
+        // Verificamos si la posición del mouse corresponde al cuadrado verde
+        else if (x > xVerde && x < xVerde + tamanhoCuadrados) {
+            colorActual = "green"; // Establecemos el color actual como verde
+        }
+        // Verificamos si la posición del mouse corresponde al cuadrado azul
+        else if (x > xAzul && x < xAzul + tamanhoCuadrados) {
+            colorActual = "blue"; // Establecemos el color actual como azul
+        }
+    }
+}
+
+pantalla.onmousemove = capturarMovimientoDelMouse; // Capturamos el movimiento del mouse en el lienzo
+pantalla.onmousedown = habilitarDibujar; // Habilitamos el dibujo al presionar el mouse
+pantalla.onmouseup = deshabilitarDibujar; // Deshabilitamos el dibujo al soltar el mouse
+dibujarPaletaColores(); // Dibujamos la paleta de colores en el lienzo
+pantalla.onclick = seleccionarColor; // Capturamos el evento de clic para seleccionar el color
+
+
+</script>
