@@ -1,0 +1,47 @@
+git --version: Muestra la versión de Git instalada.
+dir o ls: Lista los archivos y carpetas en el directorio actual.
+cd: Cambia de directorio.
+git init: Inicializa un repositorio Git en el directorio actual.
+git status: Muestra el estado actual del repositorio.
+git add <file>: Agrega un archivo al área de preparación para su posterior confirmación.
+git rm --cached <file>: Quita un archivo del área de preparación.
+git commit -m "mensaje": Confirma los cambios agregados en el área de preparación con un mensaje descriptivo.
+git config --global user.email "<email>": Configura el correo electrónico del usuario a nivel global.
+git config --global user.name "<nombre>": Configura el nombre del usuario a nivel global.
+git config --local user.email "<email>": Configura el correo electrónico del usuario a nivel local (repositorio específico).
+git config --local user.name "<nombre>": Configura el nombre del usuario a nivel local (repositorio específico).
+git log: Muestra el historial de confirmaciones (commits).
+clear: Limpia la pantalla del terminal.
+git log --oneline: Muestra el historial de confirmaciones de forma resumida.
+git log -p: Muestra el historial de confirmaciones con diferencias (diff) detalladas.
+git log --help: Muestra la ayuda para el comando git log.
+mkdir <nombre>: Crea un directorio con el nombre especificado.
+cd <nombre>: Cambia al directorio especificado.
+git init --bare: Inicializa un repositorio Git vacío sin un directorio de trabajo.
+git remote: Muestra los repositorios remotos configurados.
+git remote add <nombre> <url>: Agrega un repositorio remoto con el nombre y la URL especificados.
+git remote -v: Muestra la lista de repositorios remotos con sus respectivas URLs.
+git clone <url>: Clona un repositorio remoto en un nuevo directorio local.
+git push <remoto> <rama>: Envía los cambios confirmados al repositorio remoto y la rama especificados.
+git remote rename <nombre_actual> <nombre_nuevo>: Renombra un repositorio remoto existente.
+git add <archivo>: Agrega un archivo al área de preparación.
+git commit -m "<mensaje>": Confirma los cambios agregados en el área de preparación con un mensaje descriptivo.
+git push <remoto> <rama>: Envía los cambios confirmados al repositorio remoto y la rama especificados.
+git pull <remoto> <rama>: Obtiene los cambios del repositorio remoto y los fusiona con la rama actual.
+git branch: Muestra la lista de ramas y resalta la rama actual.
+git checkout <rama>: Cambia a la rama especificada.
+git branch <nombre>: Crea una nueva rama con el nombre especificado.
+git merge <rama>: Fusiona la rama especificada con la rama actual.
+git rebase <rama>: Aplica los cambios de la rama especificada sobre la rama actual.
+git log --graph: Muestra el historial de confirmaciones en forma de gráfico.
+git restore <archivo>: Descarta los cambios no confirmados en un archivo.
+git revert <commit>: Revierte un commit específico, creando un nuevo commit que deshace los cambios.
+git stash: Guarda temporalmente los cambios no confirmados en una pila de cambios (stash).
+git stash list: Muestra la lista de cambios guardados en la pila de cambios.
+git stash apply: Aplica el último cambio guardado de la pila de cambios sin eliminarlo.
+git stash pop: Aplica el último cambio guardado de la pila de cambios y lo elimina de la lista.
+git checkout <nombre>: Cambia al commit o rama especificados.
+git checkout -b <nombre>: Crea una nueva rama con el nombre especificado y cambia a ella.
+git diff <commit> .. <commit>: Muestra las diferencias entre dos commits.
+git tag -a <nombre> -m "<mensaje>": Crea una etiqueta (tag) anotada con el nombre y el mensaje especificados.
+git remote -v: Muestra la lista de repositorios remotos configurados con sus respectivas URLs.
